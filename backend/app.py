@@ -8,11 +8,13 @@ import openai
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 
-# --- OpenAI API Key (Make sure it's set in your environment) ---
+# --- OpenAI API Key (Make sure it's set in your Render environment) ---
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+# --- Report File Path ---
 REPORTS_FILE = 'patient_reports.json'
 
+# --- Save Report to JSON File ---
 def save_report(report):
     if os.path.exists(REPORTS_FILE):
         with open(REPORTS_FILE, 'r') as f:
@@ -23,22 +25,27 @@ def save_report(report):
     with open(REPORTS_FILE, 'w') as f:
         json.dump(data, f, indent=2)
 
-# Initialize Flask app
+# --- Initialize Flask App ---
 app = Flask(__name__)
 CORS(app)
 
-# Load models
+# --- Load Models with Absolute Paths ---
+base_dir = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(base_dir, "models", "chest_xray_model.h5")
+model2_path = os.path.join(base_dir, "models", "brain_tumor_model.h5")
+
 try:
-    model = load_model("chest_xray_model.h5")
-    model2 = load_model("brain_tumor_model.h5")
+    model = load_model(model_path)
+    model2 = load_model(model2_path)
     print("Models loaded successfully.")
 except Exception as e:
     print(f"Error loading models: {e}")
     model, model2 = None, None
 
-# Ensure uploads directory exists
+# --- Ensure Uploads Directory Exists ---
 os.makedirs("uploads", exist_ok=True)
 
+# --- Home Route ---
 @app.route('/')
 def index():
     return jsonify({'message': 'ScanX API is running'})
@@ -156,7 +163,7 @@ def chat():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-# ---------- Run the app ----------
+# ---------- Run the App ----------
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=True)
