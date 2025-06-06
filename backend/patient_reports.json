@@ -1,0 +1,86 @@
+[
+  {
+    "filename": "pituitary.jpg",
+    "scan_type": "brain",
+    "result": "pituitary",
+    "confidence": 86.53,
+    "timestamp": "2025-05-27 20:10:24.040340"
+  },
+  {
+    "filename": "sample2.webp",
+    "scan_type": "chest",
+    "result": "NORMAL",
+    "confidence": 95.47,
+    "timestamp": "2025-05-27 20:29:34.152825"
+  },
+  {
+    "filename": "sample2.webp",
+    "scan_type": "chest",
+    "result": "NORMAL",
+    "confidence": 95.47,
+    "timestamp": "2025-05-27 20:34:10.040235"
+  },
+  {
+    "filename": "glioma2.jpeg",
+    "scan_type": "brain",
+    "result": "meningioma",
+    "confidence": 79.74,
+    "timestamp": "2025-05-29 09:04:40.172982"
+  },
+  {
+    "filename": "meningioma.jpg",
+    "scan_type": "brain",
+    "result": "meningioma",
+    "confidence": 99.81,
+    "timestamp": "2025-05-31 21:35:48.726226"
+  },
+  {
+    "filename": "sample2.webp",
+    "scan_type": "chest",
+    "result": "NORMAL",
+    "confidence": 95.47,
+    "timestamp": "2025-05-31 21:36:20.559121"
+  },
+  {
+    "filename": "brain1.jpeg",
+    "scan_type": "brain",
+    "result": "pituitary",
+    "confidence": 92.46,
+    "timestamp": "2025-06-04 14:47:49.421472"
+  },
+  {
+    "filename": "pituitary.jpg",
+    "scan_type": "brain",
+    "result": "pituitary",
+    "confidence": 86.53,
+    "timestamp": "2025-06-04 17:44:22.843769"
+  },
+  {
+    "filename": "sample2.webp",
+    "scan_type": "chest",
+    "result": "NORMAL",
+    "confidence": 95.47,
+    "timestamp": "2025-06-04 19:51:10.290503"
+  },
+  {
+    "filename": "sample2.webp",
+    "scan_type": "chest",
+    "result": "NORMAL",
+    "confidence": 95.47,
+    "timestamp": "2025-06-04 19:51:23.106119"
+  },
+  {
+    "filename": "meningioma.jpg",
+    "scan_type": "brain",
+    "result": "meningioma",
+    "confidence": 99.81,
+    "timestamp": "2025-06-05 18:17:44.564105"
+  },
+  {
+    "filename": "sample2.webp",
+    "scan_type": "chest",
+    "result": "NORMAL",
+    "confidence": 95.47,
+    "timestamp": "2025-06-06 00:26:07.852252"
+  }
+]

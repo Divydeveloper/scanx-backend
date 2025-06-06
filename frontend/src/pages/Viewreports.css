@@ -1,0 +1,76 @@
+.dashboard {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-content {
+  display: flex;
+  flex: 1;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #ecf0f1;
+  padding: 1rem;
+  border-right: 1px solid #ccc;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 0.8rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.sidebar li:hover,
+.sidebar li.active {
+  background-color: #3498db;
+  color: white;
+}
+
+.main-panel {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+.view-reports table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.view-reports th,
+.view-reports td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.view-reports th {
+  background-color: #f4f4f4;
+}
+
+.view-reports button {
+  padding: 5px 10px;
+  background-color: #ff4d4d;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}

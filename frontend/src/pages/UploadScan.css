@@ -1,0 +1,243 @@
+.upload-container {
+  max-width: 750px;
+  margin: 40px auto;
+  padding: 32px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+  text-align: center;
+  color: #090c11;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.upload-scan-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.upload-scan-form select {
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+/* New Blue Dotted Box for File Input */
+.file-input-box {
+  border: 2.5px dotted #2563eb;
+  background-color: #eff6ff;
+  padding: 1.2rem;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.file-input-box:hover {
+  background-color: #dbeafe;
+}
+
+.file-input-box input[type="file"] {
+  width: 100%;
+  font-size: 15px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.upload-scan-form button {
+  padding: 0.75rem;
+  background-color: #17326c;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.upload-scan-form button:hover {
+  background-color: #1d4ed8;
+}
+
+.upload-scan-form button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.preview-section {
+  text-align: center;
+}
+
+.preview-image {
+  margin-top: 10px;
+  width: 320px;
+  max-height: 320px;
+  object-fit: contain;
+  border-radius: 14px;
+  border: 2px solid #60a5fa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.loading,
+.error {
+  text-align: center;
+  margin-top: 14px;
+  font-weight: 500;
+}
+
+.loading {
+  font-style: italic;
+  color: #4b5563;
+}
+
+.error {
+  color: #dc2626;
+}
+
+.result-box {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  border-left: 8px solid;
+  transition: all 0.4s ease;
+}
+
+.result-box.success {
+  background-color: #e6f4ea;
+  border-color: #34a853;
+  color: #1b5e20;
+}
+
+.result-box.warning {
+  background-color: #fce8e6;
+  border-color: #d93025;
+  color: #b71c1c;
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 12px;
+}
+
+.result-icon {
+  font-size: 28px;
+}
+
+.result-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.result-description {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #444;
+}
+
+.confidence-section {
+  margin-top: 12px;
+}
+
+.confidence-bar-bg {
+  background-color: #ddd;
+  border-radius: 20px;
+  height: 16px;
+  overflow: hidden;
+}
+
+.confidence-bar-fill {
+  height: 100%;
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 16px;
+  border-radius: 20px;
+  transition: width 0.6s ease;
+}
+
+.confidence-fill-high {
+  background-color: #34a853;
+}
+
+.confidence-fill-medium {
+  background-color: #fbbc04;
+}
+
+.confidence-fill-low {
+  background-color: #ea4335;
+}
+.dynamic-bg {
+  position: absolute;
+  top: 64px; /* below navbar */
+  left: 250px; /* beside sidebar */
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.dynamic-bg.fade-in {
+  opacity: 1;
+}
+
+.upload-container {
+  position: relative;
+  z-index: 1; /* above background */
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 500px;
+  margin: 60px auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+.upload-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding-bottom: 60px; /* prevent cutoff at bottom */
+}
+
+
+/* Full-screen background */
+.full-page-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* Fade in effect */
+.full-page-bg.fade-in {
+  opacity: 1;
+}
+
+.full-page-bg.fade-out {
+  opacity: 0;
+}
+
+/* Sidebar blur + tint */
+.sidebar {
+  backdrop-filter: blur(6px);
+  background-color: rgba(255, 255, 255, 0.4); /* adjust as needed */
+  z-index: 2;
+}

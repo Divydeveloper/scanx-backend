@@ -1,0 +1,136 @@
+/* Base styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #11e6d8;
+}
+
+/* Theming */
+body.theme-dark {
+  --bg-color: #111;
+  --form-bg: rgba(20, 20, 20, 0.85);
+  --text-color: white;
+  --input-bg: #222;
+  --button-bg: #0ff;
+  --button-text: black;
+}
+
+body.theme-light {
+  --bg-color: #f5f5f5;
+  --form-bg: rgba(255, 255, 255, 0.9);
+  --text-color: #111;
+  --input-bg: #fff;
+  --button-bg: #007bff;
+  --button-text: white;
+}
+
+/* Container for dashboard cards */
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+/* Headings */
+h1 {
+  color: #0d3b66;
+  margin-bottom: 20px;
+}
+
+/* Uploads or input fields */
+input[type="file"] {
+  margin: 15px 0;
+}
+
+/* Button styling */
+button {
+  padding: 10px 25px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Image preview */
+.priview img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border: 1px solid #cc1111;
+  border-radius: 8px;
+}
+
+/* Diagnosis result */
+.result {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #222;
+}
+
+/* Loading indicator */
+.loading {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #888;
+}
+
+/* Root element for React */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Optional logo styling */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+/* Logo animation */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* Card section if used */
+.card {
+  padding: 2em;
+}
+
+/* Docs hint style */
+.read-the-docs {
+  color: #888;
+}

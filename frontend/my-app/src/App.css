@@ -1,0 +1,98 @@
+/* Root layout styling */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+/* Logo styles (preserved) */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+/* Spinning animation for React logo */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* ScanX UI styles */
+.container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.form-section {
+  margin-top: 2rem;
+}
+
+select,
+input[type="file"] {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  font-size: 16px;
+}
+
+.preview {
+  display: block;
+  margin: 1rem auto;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 0.7rem 1.5rem;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 1rem;
+  background-color: #646cff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+button:hover {
+  background-color: #4c4fe0;
+}
+
+.loading {
+  color: orange;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.result {
+  margin-top: 1.5rem;
+  font-size: 18px;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+.read-the-docs {
+  color: #888;
+  margin-top: 3rem;
+}

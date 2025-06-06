@@ -1,0 +1,95 @@
+/* DoctorDashboard.css */
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #8baee2;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #004aad;
+  color: rgb(241, 189, 189);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar button {
+  background-color: #ff4b5c;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar button:hover {
+  background-color: #e04352;
+}
+
+.dashboard-content {
+  display: flex;
+  flex-grow: 1;
+  height: calc(100vh - 64px); /* navbar height */
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #02275d;
+  color: white;
+  padding: 1.5rem 1rem;
+  box-sizing: border-box;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  padding: 12px 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 8px;
+}
+
+.sidebar ul li:hover,
+.sidebar ul li.active {
+  background-color: #004aad;
+}
+
+.main-panel {
+  flex: 1;
+  background-color: white;
+  padding: 3rem 4rem; /* more padding */
+  box-sizing: border-box;
+  overflow-y: auto;
+  height: 100%;
+  max-width: 900px;  /* max width so it doesn't get too wide */
+  margin: 0 auto;    /* center horizontally */
+  border-radius: 12px; /* rounded corners */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* soft shadow */
+  transition: box-shadow 0.3s ease;
+}
+
+.main-panel:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* deeper shadow on hover */
+}
+.main-panel h3,
+.main-panel h4 {
+  margin-top: 0;
+  color: #333;
+}
+
+.main-panel p {
+  color: #666;
+}
