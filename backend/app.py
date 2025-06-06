@@ -28,7 +28,7 @@ def save_report(report):
 
 # --- Initialize Flask App ---
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["https://scanx-j3l0.onrender.com"])
 
 # --- Paths to Models ---
 base_dir = os.path.dirname(os.path.abspath(__file__))
