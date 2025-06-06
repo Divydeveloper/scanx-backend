@@ -1,8 +1,0 @@
-[phases.setup]
-nixPkgs = ["python3", "pipenv"]
-
-[phases.install]
-cmds = ["pip3 install -r requirements.txt"]
-
-[phases.start]
-cmd = "python3 app.py"
