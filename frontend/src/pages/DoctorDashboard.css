@@ -52,18 +52,18 @@ html, body {
   height: 100vh; /* full height of viewport */
   overflow: hidden;
   opacity: 0;
-  transition: opacity 2.8s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .dashboard-content-fade-in {
   opacity: 1;
-  transition: opacity 2.8s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .dashboard-content-hidden {
   opacity: 0;
   pointer-events: none;
-  transition: opacity 2.8s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .sidebar {
