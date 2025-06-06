@@ -11,7 +11,7 @@ function ViewReports() {
 
   const fetchReports = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:5000/reports");
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/reports`);
       setReports(response.data);
     } catch (error) {
       console.error("Error fetching reports:", error);
@@ -23,7 +23,7 @@ function ViewReports() {
     if (!confirm) return;
 
     try {
-      await axios.delete(`http://127.0.0.1:5000/delete-report/${index}`);
+      await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/delete-report/${index}`);
       fetchReports(); // Refresh the list
     } catch (error) {
       console.error("Error deleting report:", error);
