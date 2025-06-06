@@ -5,10 +5,11 @@ import numpy as np
 import json
 from datetime import datetime
 import openai
+import gc
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 
-# --- OpenAI API Key (Make sure it's set in your Render environment) ---
+# --- OpenAI API Key ---
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # --- Report File Path ---
@@ -29,18 +30,10 @@ def save_report(report):
 app = Flask(__name__)
 CORS(app)
 
-# --- Load Models with Absolute Paths ---
+# --- Paths to Models ---
 base_dir = os.path.dirname(os.path.abspath(__file__))
 model_path = os.path.join(base_dir, "models", "chest_xray_model.h5")
 model2_path = os.path.join(base_dir, "models", "brain_tumor_model.h5")
-
-try:
-    model = load_model(model_path)
-    model2 = load_model(model2_path)
-    print("Models loaded successfully.")
-except Exception as e:
-    print(f"Error loading models: {e}")
-    model, model2 = None, None
 
 # --- Ensure Uploads Directory Exists ---
 os.makedirs("uploads", exist_ok=True)
@@ -61,10 +54,12 @@ def predict_chest():
     img_path = os.path.join("uploads", file.filename)
     file.save(img_path)
     try:
+        # Lazy load chest model
+        chest_model = load_model(model_path)
         img = image.load_img(img_path, target_size=(150, 150))
         img = image.img_to_array(img)
         img = np.expand_dims(img, axis=0) / 255.0
-        prediction = model.predict(img)[0]
+        prediction = chest_model.predict(img)[0]
         label = "PNEUMONIA" if prediction > 0.5 else "NORMAL"
         confidence = prediction if prediction > 0.5 else 1 - prediction
         report = {
@@ -75,6 +70,11 @@ def predict_chest():
             'timestamp': str(datetime.now())
         }
         save_report(report)
+
+        # Cleanup model from memory
+        del chest_model
+        gc.collect()
+
         return jsonify({'Result': label, 'confidence': round(float(confidence) * 100, 2)})
     except Exception as e:
         return jsonify({'error': f'Prediction error: {str(e)}'}), 500
@@ -90,10 +90,12 @@ def predict_brain():
     img_path = os.path.join("uploads", file.filename)
     file.save(img_path)
     try:
+        # Lazy load brain model
+        brain_model = load_model(model2_path)
         img = image.load_img(img_path, target_size=(150, 150))
         img = image.img_to_array(img)
         img = np.expand_dims(img, axis=0) / 255.0
-        prediction = model2.predict(img)[0]
+        prediction = brain_model.predict(img)[0]
         classes = ['glioma', 'meningioma', 'pituitary', 'no tumor']
         predicted_class = classes[np.argmax(prediction)]
         confidence = float(np.max(prediction))
@@ -105,6 +107,11 @@ def predict_brain():
             'timestamp': str(datetime.now())
         }
         save_report(report)
+
+        # Cleanup model from memory
+        del brain_model
+        gc.collect()
+
         return jsonify({'Result': predicted_class, 'confidence': round(confidence * 100, 2)})
     except Exception as e:
         return jsonify({'error': f'Prediction error: {str(e)}'}), 500
